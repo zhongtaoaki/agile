@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>アジャイルオンボーディング</title><link>http://localhost:1313/docs/home/</link><description>Recent content on アジャイルオンボーディング</description><generator>Hugo</generator><language>en-us</language><atom:link href="http://localhost:1313/docs/home/index.xml" rel="self" type="application/rss+xml"/><item><title>1.アジャイルの概要</title><link>http://localhost:1313/docs/home/1.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E6%A6%82%E8%A6%81/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/home/1.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E6%A6%82%E8%A6%81/</guid><description>&lt;h1 id="アジャイルの概要">
+ アジャイルの概要
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e3%81%ae%e6%a6%82%e8%a6%81">#&lt;/a>
+&lt;/h1>
+
+
+&lt;script src="http://localhost:1313/mermaid.min.js">&lt;/script>
+
+ &lt;script>mermaid.initialize({
+ "flowchart": {
+ "useMaxWidth":true
+ },
+ "theme": "default"
+}
+)&lt;/script>
+
+
+
+
+&lt;p class="mermaid optional">
+flowchart TD
+ A[かんばん方式 1960代] -->B(「トヨタ生産方式」
+ 1978年、大野耐一)
+ B --> C(「The New Product Development Game」
+ 1986年、野中郁次郎、竹内助教授)
+ C -->D(「スクラム」)
+ D -->E(「アジャイルソフトウェア開発宣言」
+ 2001年)
+&lt;/p>
+
+&lt;h2 id="世界のソフトウェア開発の手本となっているかんばん方式">
+ 世界のソフトウェア開発の手本となっている「かんばん方式」
+ &lt;a class="anchor" href="#%e4%b8%96%e7%95%8c%e3%81%ae%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e9%96%8b%e7%99%ba%e3%81%ae%e6%89%8b%e6%9c%ac%e3%81%a8%e3%81%aa%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8b%e3%81%8b%e3%82%93%e3%81%b0%e3%82%93%e6%96%b9%e5%bc%8f">#&lt;/a>
+&lt;/h2>
+&lt;p>まずトヨタの生産方式を確立させたのが、1960代にトヨタが採用したかんばん方式だといわれています。&lt;/p>
+&lt;p>かんばん方式においては、最初から無駄が生まれない仕組みになっているので、常に人が存在せずともかんばんにより最適化が図られていることになります。&lt;/p>
+&lt;p>この過程でトヨタの生産に関する理論の体系化に多大な貢献をされたのが大野耐一さんというトヨタの元副社長の方で、1978年に「トヨタ生産方式」という名著を記されています。これは10年後の1988年に英語版でも出版され、世界中で読まれています。&lt;/p>
+&lt;h2 id="日本組織から生まれたアジャイル開発とスクラムの原点">
+ 日本組織から生まれた「アジャイル開発」と「スクラム」の原点
+ &lt;a class="anchor" href="#%e6%97%a5%e6%9c%ac%e7%b5%84%e7%b9%94%e3%81%8b%e3%82%89%e7%94%9f%e3%81%be%e3%82%8c%e3%81%9f%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e9%96%8b%e7%99%ba%e3%81%a8%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e3%81%ae%e5%8e%9f%e7%82%b9">#&lt;/a>
+&lt;/h2>
+&lt;p>より広く世界が日本型組織を注目するようになった転機の一つとして、1986年に一橋大学教授の野中郁次郎教授と、ハーバード大学の竹内助教授が発表された「The New Product Development Game」という論文の存在があります。&lt;/p>
+&lt;p>この論文では、日本の組織のオペレーション面だけに着目するのではなく、小さなチーム単位で自律的に学び、仕事にあたる形態を「スクラム」と表現しました。組織内のチーム連携が優れている点に着目し「学びを最大化させる」発想が組織に根付いていることを説明しました。&lt;/p>
+&lt;h2 id="アジャイルソフトウェア開発宣言の原点">
+ 「アジャイルソフトウェア開発宣言」の原点
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e9%96%8b%e7%99%ba%e5%ae%a3%e8%a8%80%e3%81%ae%e5%8e%9f%e7%82%b9">#&lt;/a>
+&lt;/h2>
+&lt;p>この論文に着目したのが、Jeff Sutherland、John Scumniotales、Jeff McKennaといった米国のエンジニア経験者を中心としたメンバーで1990年代に10年ほどかけてこのハードウェアの生産におけるアジャイル開発の考え方を、ソフトウェア開発の分野にも応用できないかという研究が進められました。&lt;/p>
+&lt;p>なぜこの研究を進めていたかというと当時、要件定義を最初の段階で固定化させてしまい建築物のような手法を応用してプロジェクト単位で管理していくウォーターフォールが主流で、その手法だけでは柔軟性に欠け、システム開発が常に長期化し、かつ無駄に肥大化してしまう傾向にあり、大きな問題となっていました。そこで2001年の従来のソフトウェア開発とは大きく異なる手法を提案したあの有名な「アジャイルソフトウェア開発宣言」に繋がっていくわけです。&lt;/p></description></item><item><title>2.アジャイルの価値と原則</title><link>http://localhost:1313/docs/home/2.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E4%BE%A1%E5%80%A4%E3%81%A8%E5%8E%9F%E5%89%87/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/home/2.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E4%BE%A1%E5%80%A4%E3%81%A8%E5%8E%9F%E5%89%87/</guid><description>&lt;h1 id="アジャイルの価値と原則">
+ アジャイルの価値と原則
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e3%81%ae%e4%be%a1%e5%80%a4%e3%81%a8%e5%8e%9f%e5%89%87">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="アジャイルマニフェスト">
+ アジャイルマニフェスト
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e3%83%9e%e3%83%8b%e3%83%95%e3%82%a7%e3%82%b9%e3%83%88">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="http://localhost:1313/images/agile-manifest.png" alt="アジャイルマニフェスト" />&lt;/p>
+&lt;h2 id="アジャイル宣言の背後にある原則">
+ アジャイル宣言の背後にある原則
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e5%ae%a3%e8%a8%80%e3%81%ae%e8%83%8c%e5%be%8c%e3%81%ab%e3%81%82%e3%82%8b%e5%8e%9f%e5%89%87">#&lt;/a>
+&lt;/h2>
+&lt;p>私たちは以下の原則に従う:&lt;/p>
+&lt;ol>
+&lt;li>顧客満足を最優先し、価値のあるソフトウェアを早く継続的に提供します。&lt;/li>
+&lt;li>要求の変更はたとえ開発の後期であっても歓迎します。変化を味方につけることによって、お客様の競争力を引き上げます。&lt;/li>
+&lt;li>動くソフトウェアを、2-3週間から2-3ヶ月というできるだけ短い時間間隔でリリースします。&lt;/li>
+&lt;li>ビジネス側の人と開発者は、プロジェクトを通して日々一緒に働かなければなりません。&lt;/li>
+&lt;li>意欲に満ちた人々を集めてプロジェクトを構成します。環境と支援を与え仕事が無事終わるまで彼らを信頼します。&lt;/li>
+&lt;li>情報を伝えるもっとも効率的で効果的な方法はフェイス・トゥ・フェイスで話をすることです。&lt;/li>
+&lt;li>動くソフトウェアこそが進捗の最も重要な尺度です。&lt;/li>
+&lt;li>アジャイル･プロセスは持続可能な開発を促進します。一定のペースを継続的に維持できるようにしなければなりません。&lt;/li>
+&lt;li>技術的卓越性と優れた設計に対する不断の注意が機敏さを高めます。&lt;/li>
+&lt;li>シンプルさ（ムダなく作れる量を最大限にすること）が本質です。&lt;/li>
+&lt;li>最良のアーキテクチャ・要求・設計は、自己組織的なチームから生み出されます。&lt;/li>
+&lt;li>チームがもっと効率を高めることができるかを定期的に振り返り、それに基づいて自分たちのやり方を最適に調整します。&lt;/li>
+&lt;/ol></description></item><item><title>4.ユーザーストーリーの作成と管理</title><link>http://localhost:1313/docs/home/4.%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E7%AE%A1%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/home/4.%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E7%AE%A1%E7%90%86/</guid><description>&lt;h1 id="ユーザーストーリーの作成と管理">
+ ユーザーストーリーの作成と管理
+ &lt;a class="anchor" href="#%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e3%82%b9%e3%83%88%e3%83%bc%e3%83%aa%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90%e3%81%a8%e7%ae%a1%e7%90%86">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="mentem-genus-facietque-salire-tempus-bracchia">
+ Mentem genus facietque salire tempus bracchia
+ &lt;a class="anchor" href="#mentem-genus-facietque-salire-tempus-bracchia">#&lt;/a>
+&lt;/h2></description></item><item><title>5.アジャイルのよくある課題</title><link>http://localhost:1313/docs/home/5.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%AA%B2%E9%A1%8C/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/home/5.%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%AA%B2%E9%A1%8C/</guid><description>&lt;h1 id="アジャイルのよくある課題">
+ アジャイルのよくある課題
+ &lt;a class="anchor" href="#%e3%82%a2%e3%82%b8%e3%83%a3%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e8%aa%b2%e9%a1%8c">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="ビジネス側の要求に最大限応えられる">
+ ビジネス側の要求に最大限応えられる
+ &lt;a class="anchor" href="#%e3%83%93%e3%82%b8%e3%83%8d%e3%82%b9%e5%81%b4%e3%81%ae%e8%a6%81%e6%b1%82%e3%81%ab%e6%9c%80%e5%a4%a7%e9%99%90%e5%bf%9c%e3%81%88%e3%82%89%e3%82%8c%e3%82%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>アジャイル手法の一種であるスクラムは、俊敏性の高さからビジネス側の要求に柔軟に応えられるというメリットがあります。&lt;/p>
+&lt;p>ソフトウェア開発の現場では要求変更が起きて当たり前と考えているので、開発途中で変更が生じても柔軟に対応できます。これが従来型のソフトウェア開発と決定的に違う点です。&lt;/p>
+&lt;h2 id="チームワーク強化による生産性向上が期待できる">
+ チームワーク強化による生産性向上が期待できる
+ &lt;a class="anchor" href="#%e3%83%81%e3%83%bc%e3%83%a0%e3%83%af%e3%83%bc%e3%82%af%e5%bc%b7%e5%8c%96%e3%81%ab%e3%82%88%e3%82%8b%e7%94%9f%e7%94%a3%e6%80%a7%e5%90%91%e4%b8%8a%e3%81%8c%e6%9c%9f%e5%be%85%e3%81%a7%e3%81%8d%e3%82%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>メンバー同士の得手/不得手を理解し、チーム全体がスクラム開発に最適化されていくことで生産性を大幅にアップできます。&lt;/p>
+&lt;p>日頃から固定的なメンバーで開発することが多い場合は、スクラム導入を検討してもいいかと思います。&lt;/p></description></item></channel></rss>
