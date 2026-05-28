@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const docs = await getCollection('docs', ({ data }) => !data.draft);
+const sorted = docs.sort((a, b) => {
+  // Sort by order if available, then by date
+  if (a.data.order !== undefined && b.data.order !== undefined) {
+    return a.data.order - b.data.order;
+  }
+  return b.data.publishDate.getTime() - a.data.publishDate.getTime();
+});
+
+const categories = [...new Set(sorted.map((d) => d.data.category).filter(Boolean))];
+---
+
+<BaseLayout title="Docs" description="Javaデザインパターン・技術リファレンスドキュメント">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Page Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-3">Docs</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Javaデザインパターンや技術リファレンスを体系的に整理したドキュメント集
+      </p>
+    </div>
+
+    <!-- Category filter (static) -->
+    {categories.length > 1 && (
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 self-center">カテゴリ:</span>
+        {categories.map((cat) => (
+          <span class="px-3 py-1 text-sm rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+            {cat}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- Docs grid -->
+    {sorted.length === 0 ? (
+      <div class="text-center py-24 text-gray-400 dark:text-gray-500">
+        <p class="text-4xl mb-4">📚</p>
+        <p>まだドキュメントがありません</p>
+      </div>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sorted.map((doc) => (
+          <PostCard
+            title={doc.data.title}
+            description={doc.data.description}
+            publishDate={doc.data.publishDate}
+            category={doc.data.category}
+            href={`${base}/docs/${doc.slug}/`}
+            type="docs"
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

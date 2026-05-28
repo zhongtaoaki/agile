@@ -1,0 +1,32 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs', ({ data }) => !data.draft);
+  return docs.map((doc) => ({
+    params: { slug: doc.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const doc = await getEntry('docs', slug);
+
+if (!doc) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await doc.render();
+---
+
+<PostLayout
+  title={doc.data.title}
+  description={doc.data.description}
+  publishDate={doc.data.publishDate}
+  updatedDate={doc.data.updatedDate}
+  category={doc.data.category}
+  tags={doc.data.tags}
+  type="docs"
+>
+  <Content />
+</PostLayout>

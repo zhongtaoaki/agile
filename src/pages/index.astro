@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const allBlog = await getCollection('blog', ({ data }) => !data.draft);
+const allDocs = await getCollection('docs', ({ data }) => !data.draft);
+
+const recentBlog = allBlog
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+
+const recentDocs = allDocs
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Aki's Agile Lab"
+  description="AI時代でのアジャイル開発を探求する技術ブログ"
+>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative overflow-hidden">
+
+    <!-- Ambient background glow -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-gradient-to-b from-indigo-400/20 via-violet-300/10 to-transparent dark:from-indigo-600/20 dark:via-violet-500/10 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-6 lg:px-8 pt-32 pb-40 text-center">
+
+      <!-- Eyebrow tag -->
+      <div class="animate-fadein inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.04] mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
+        <span class="text-[13px] font-medium text-[#6e6e73] dark:text-[#a1a1a6] tracking-wide">
+          Agile × AI × Aki
+        </span>
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="animate-fadein-delay1 text-[56px] sm:text-[72px] lg:text-[88px] font-bold tracking-[-0.04em] leading-[1.05] text-[#1d1d1f] dark:text-white mb-6">
+        Agile <span class="bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 bg-clip-text text-transparent">×</span> AI.
+      </h1>
+
+      <!-- Sub headline -->
+      <p class="animate-fadein-delay2 text-[21px] sm:text-[24px] font-medium text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed max-w-2xl mx-auto mb-4">
+        Aki のアジャイルラボ。
+      </p>
+      <p class="animate-fadein-delay2 text-[17px] text-[#86868b] dark:text-[#6e6e73] leading-relaxed max-w-xl mx-auto mb-14">
+        敏捷开发的本质、AI的效率<br class="hidden sm:block" />产品价值之间的连接。
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="animate-fadein-delay3 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={`${base}/blog/`}
+          class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#1d1d1f] dark:bg-white text-white dark:text-[#1d1d1f] text-[17px] font-semibold hover:bg-black dark:hover:bg-gray-100 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          Blog を読む
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a
+          href={`${base}/docs/`}
+          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-black/20 dark:border-white/20 text-[#1d1d1f] dark:text-white text-[17px] font-semibold hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-all duration-200"
+        >
+          Docs を見る
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== BENTO — About Me ========== -->
+  <section class="max-w-6xl mx-auto px-6 lg:px-8 pb-32 reveal">
+    <div class="grid grid-cols-12 gap-4 auto-rows-[minmax(160px,auto)]">
+
+      <!-- Profile card — tall left -->
+      <div class="col-span-12 md:col-span-5 row-span-2 rounded-3xl bg-[#f5f5f7] dark:bg-[#1c1c1e] p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-2xl font-bold mb-6" aria-hidden="true">
+            A
+          </div>
+          <h2 class="text-[28px] font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-tight mb-3">
+            鍾涛 (Aki)<br />
+            <span class="text-[#6e6e73] dark:text-[#a1a1a6] font-medium text-[20px]">Product Engineer</span>
+          </h2>
+          <p class="text-[15px] text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            MBA 取得後、Java 講師・アジャイルコンサルタントを経て Product Engineer へ。
+            技術の底层と商業価値を繋ぐ視点でコンテンツを発信しています。
+          </p>
+        </div>
+        <a
+          href={`${base}/about/`}
+          class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-indigo-600 dark:text-indigo-400 hover:gap-2.5 transition-all duration-200 mt-6"
+          aria-label="Aki のプロフィールページへ"
+        >
+          詳しく見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Agile card -->
+      <div class="col-span-12 sm:col-span-6 md:col-span-4 rounded-3xl bg-gradient-to-br from-indigo-500 to-violet-600 p-8 flex flex-col justify-between text-white">
+        <div class="text-4xl mb-4" aria-hidden="true">🔄</div>
+        <div>
+          <h3 class="text-[20px] font-bold mb-1">Agile / Scrum</h3>
+          <p class="text-indigo-100 text-[14px] leading-relaxed">価値観・スプリント・チームダイナミクスを現場視点で解説</p>
+        </div>
+      </div>
+
+      <!-- Java card -->
+      <div class="col-span-12 sm:col-span-6 md:col-span-3 rounded-3xl bg-[#f5f5f7] dark:bg-[#1c1c1e] p-8 flex flex-col justify-between">
+        <div class="text-4xl mb-4" aria-hidden="true">☕</div>
+        <div>
+          <h3 class="text-[20px] font-bold text-[#1d1d1f] dark:text-white mb-1">Java</h3>
+          <p class="text-[#6e6e73] dark:text-[#a1a1a6] text-[14px] leading-relaxed">GoF デザインパターンを実装コード付きで体系的に整理</p>
+        </div>
+      </div>
+
+      <!-- Blog count card -->
+      <div class="col-span-6 md:col-span-4 rounded-3xl bg-[#f5f5f7] dark:bg-[#1c1c1e] p-8 flex flex-col justify-between">
+        <p class="text-[13px] font-semibold text-[#6e6e73] dark:text-[#a1a1a6] uppercase tracking-widest">Blog Posts</p>
+        <p class="text-[56px] font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-none">
+          {allBlog.length}<span class="text-[28px] text-[#6e6e73]">+</span>
+        </p>
+      </div>
+
+      <!-- Docs count card -->
+      <div class="col-span-6 md:col-span-3 rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-500 p-8 flex flex-col justify-between text-white">
+        <p class="text-[13px] font-semibold text-emerald-100 uppercase tracking-widest">Docs</p>
+        <p class="text-[56px] font-bold tracking-tight leading-none">
+          {allDocs.length}<span class="text-[28px] text-emerald-200">+</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== RECENT BLOG ========== -->
+  {recentBlog.length > 0 && (
+    <section class="max-w-6xl mx-auto px-6 lg:px-8 pb-32 reveal">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="text-[13px] font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-2">Blog</p>
+          <h2 class="text-[34px] font-bold tracking-tight text-[#1d1d1f] dark:text-white">最新の記事</h2>
+        </div>
+        <a href={`${base}/blog/`} class="text-[15px] font-semibold text-indigo-600 dark:text-indigo-400 hover:underline underline-offset-4">
+          すべて見る →
+        </a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {recentBlog.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            publishDate={post.data.publishDate}
+            category={post.data.category}
+            href={`${base}/blog/${post.slug}/`}
+            type="blog"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ========== RECENT DOCS ========== -->
+  {recentDocs.length > 0 && (
+    <section class="max-w-6xl mx-auto px-6 lg:px-8 pb-40 reveal">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="text-[13px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-2">Docs</p>
+          <h2 class="text-[34px] font-bold tracking-tight text-[#1d1d1f] dark:text-white">最新のドキュメント</h2>
+        </div>
+        <a href={`${base}/docs/`} class="text-[15px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline underline-offset-4">
+          すべて見る →
+        </a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {recentDocs.map((doc) => (
+          <PostCard
+            title={doc.data.title}
+            description={doc.data.description}
+            publishDate={doc.data.publishDate}
+            category={doc.data.category}
+            href={`${base}/docs/${doc.slug}/`}
+            type="docs"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+</BaseLayout>
+
+<!-- Scroll reveal + hero animation styles -->
+<style>
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadein {
+    animation: fadein 0.7s ease both;
+  }
+  .animate-fadein-delay1 {
+    animation: fadein 0.7s ease 0.1s both;
+  }
+  .animate-fadein-delay2 {
+    animation: fadein 0.7s ease 0.2s both;
+  }
+  .animate-fadein-delay3 {
+    animation: fadein 0.7s ease 0.35s both;
+  }
+
+  /* Scroll reveal initial state */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

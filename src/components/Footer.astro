@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        &copy; {year} Zhong Tao (鍾 涛). All rights reserved.
+      </div>
+      <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        <span>Built with</span>
+        <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:underline"
+        >Astro</a>
+        <span>&amp;</span>
+        <a
+          href="https://tailwindcss.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:underline"
+        >Tailwind CSS</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const sorted = posts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+// Group by category
+const categories = [...new Set(sorted.map((p) => p.data.category).filter(Boolean))];
+---
+
+<BaseLayout title="Blog" description="アジャイル・スクラムの実践ノウハウを発信するブログ">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Page Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-3">Blog</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        アジャイル・スクラムの実践ノウハウや現場の知見を発信しています
+      </p>
+    </div>
+
+    <!-- Category filter (static) -->
+    {categories.length > 1 && (
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 self-center">カテゴリ:</span>
+        {categories.map((cat) => (
+          <span class="px-3 py-1 text-sm rounded-full bg-accent-100 text-accent-700 dark:bg-accent-900 dark:text-accent-300">
+            {cat}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- Post grid -->
+    {sorted.length === 0 ? (
+      <div class="text-center py-24 text-gray-400 dark:text-gray-500">
+        <p class="text-4xl mb-4">📝</p>
+        <p>まだ記事がありません</p>
+      </div>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sorted.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            publishDate={post.data.publishDate}
+            category={post.data.category}
+            href={`${base}/blog/${post.slug}/`}
+            type="blog"
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
