@@ -80,7 +80,7 @@ const backLabel = type === 'docs' ? 'Docs 一覧' : 'Blog 一覧';
       prose-headings:font-bold
       prose-a:text-accent-600 dark:prose-a:text-accent-400
       prose-code:text-accent-700 dark:prose-code:text-accent-300
-      prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950
+      prose-pre:!bg-transparent
       prose-img:rounded-xl
     ">
       <slot />
@@ -117,6 +117,62 @@ const backLabel = type === 'docs' ? 'Docs 一覧' : 'Blog 一覧';
     border-radius: 0.75rem;
     overflow-x: auto;
     font-size: 0.875rem;
-    line-height: 1.7;
+    line-height: 1.75;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 3px solid #4f46e5;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .astro-code {
+    border-color: rgba(255, 255, 255, 0.06);
+    border-left-color: #818cf8;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Raw HTML <pre><code> blocks not processed by Shiki */
+  article pre:not(.astro-code) {
+    background-color: #F5F5F7;
+    color: #383A42;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 3px solid #4f46e5;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  article pre:not(.astro-code) code {
+    background: none;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+
+  .dark article pre:not(.astro-code) {
+    background-color: #1e1f2e;
+    color: #a9b1d6;
+    border-color: rgba(255, 255, 255, 0.06);
+    border-left-color: #818cf8;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mermaid diagram container */
+  article pre.mermaid {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 2rem 1rem;
+    text-align: center;
+    overflow-x: auto;
+  }
+
+  article pre.mermaid svg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
   }
 </style>

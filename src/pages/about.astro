@@ -3,36 +3,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const timeline = [
   {
-    period: '2016 – 2018',
-    type: 'internship',
-    title: 'ソフトウェアエンジニア インターン',
-    company: 'テックスタートアップ A',
-    location: '東京',
-    description: 'Webアプリケーション開発に従事。JavaとSpring Frameworkを使ったバックエンド開発を経験。',
-  },
-  {
-    period: '2018 – 2020',
+    period: '2019 – 2021',
     type: 'fulltime',
     title: 'Java エンジニア',
-    company: 'SIer B',
+    company: 'NTT DATA',
     location: '東京',
-    description: '大規模な金融システムのバックエンド開発・保守。チームリーダーとして5名のチームをリード。',
+    description: 'アジャイルチームで大規模な金融システムのバックエンド開発・保守。',
   },
   {
-    period: '2020 – 2022',
-    type: 'fulltime',
-    title: 'Java 講師 / アジャイルコンサルタント',
-    company: '研修会社 C',
+    period: '2021 – 2023',
+    type: 'partime',
+    title: 'Java 講師',
+    company: '研修会社 万葉',
     location: 'リモート',
-    description: 'Javaデザインパターン・アジャイル開発のトレーニングを提供。MBA課程と並行して実施。',
+    description: 'Java・アジャイル開発のトレーニングを提供。MBA課程と並行して実施。',
   },
   {
-    period: '2022 – 現在',
+    period: '2023 – 2026',
+    type: 'fulltime',
+    title: 'アジャイルコンサルタント',
+    company: 'MSOL Digital',
+    location: '東京',
+    description: 'スクラムマスターとしてチームの自己組織化を支援。',
+  },
+  {
+    period: '2026 – 現在',
     type: 'fulltime',
     title: 'プロダクトエンジニア',
-    company: 'D社',
+    company: '日本IBM',
     location: '東京',
-    description: 'プロダクト開発とアジャイル推進を両立。スクラムマスターとしてチームの自己組織化を支援。',
+    description: 'プロダクト開発とアジャイル推進を両立。',
+  },
+];
+
+const education = [
+  {
+    period: '2021 – 2023',
+    degree: '経営管理修士（MBA）',
+    school: '京都大学経営管理大学院',
+    major: 'プロジェクトオペレーションズマネジメント専攻',
+    location: '京都',
   },
 ];
 
@@ -107,6 +117,42 @@ const skills = [
       </div>
     </section>
 
+    <!-- Education -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">学歴</h2>
+      <div class="relative">
+        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
+        <div class="space-y-8">
+          {education.map(({ period, degree, school, major, location }) => (
+            <div class="flex gap-6">
+              <div class="hidden md:flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full border-2 bg-emerald-600 border-emerald-600 text-white flex items-center justify-center shrink-0 z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="text-sm text-gray-500 dark:text-gray-400">{period}</span>
+                  <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+                    修士課程
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{degree}</h3>
+                <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  <span class="font-medium text-gray-700 dark:text-gray-300">{school}</span>
+                  <span>·</span>
+                  <span>{location}</span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">{major}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Career Timeline -->
     <section>
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">職歴</h2>
@@ -147,7 +193,7 @@ const skills = [
                       ? 'bg-accent-100 text-accent-700 dark:bg-accent-900 dark:text-accent-300'
                       : 'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300',
                   ]}>
-                    {type === 'fulltime' ? '正社員' : '実習'}
+                    {type === 'fulltime' ? '正社員' : '非常勤'}
                   </span>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{title}</h3>
@@ -168,17 +214,6 @@ const skills = [
     <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">連絡先</h2>
       <div class="flex flex-wrap gap-4">
-        <a
-          href="https://github.com/zhongtaoaki"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg text-sm font-medium hover:opacity-80 transition-opacity"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
         <a
           href="mailto:zhongtaodylan@gmail.com"
           class="inline-flex items-center gap-2 px-4 py-2 bg-accent-600 text-white rounded-lg text-sm font-medium hover:bg-accent-700 transition-colors"

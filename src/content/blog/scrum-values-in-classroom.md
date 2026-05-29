@@ -1,7 +1,7 @@
 ---
 title: スクラムの価値観を教室で活かす5つの実践
 description: スクラムの5つの価値観（コミットメント・フォーカス・オープン・尊重・勇気）を教育現場で実践する具体的な方法を解説します。
-publishDate: 2026-05-01
+publishDate: 2026-05-23
 category: Scrum
 tags: [scrum, agile, education, team]
 ---

@@ -8,8 +8,8 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: 'one-light',
+        dark: 'tokyo-night',
       },
       langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json'],
       wrap: true,

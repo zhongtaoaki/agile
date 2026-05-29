@@ -49,5 +49,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Footer />
+    <script type="module" is:inline>
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      const isDark = document.documentElement.classList.contains('dark');
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          fontSize: '17px',
+          fontFamily: 'system-ui, -apple-system, "Hiragino Sans", sans-serif',
+          primaryColor:       isDark ? '#2d2f4a' : '#e0e7ff',
+          primaryTextColor:   isDark ? '#c7d2fe' : '#312e81',
+          primaryBorderColor: isDark ? '#818cf8' : '#4f46e5',
+          lineColor:          isDark ? '#818cf8' : '#4f46e5',
+          secondaryColor:     isDark ? '#1e2030' : '#f5f5f7',
+          tertiaryColor:      isDark ? '#1a1b26' : '#ffffff',
+          clusterBkg:         isDark ? '#1e2030' : '#f8f8fc',
+          clusterBorder:      isDark ? '#4f46e5' : '#c7d2fe',
+          edgeLabelBackground:isDark ? '#1a1b26' : '#f5f5f7',
+        },
+        flowchart: { curve: 'basis', padding: 24, nodeSpacing: 40, rankSpacing: 40 },
+      });
+    </script>
   </body>
 </html>
