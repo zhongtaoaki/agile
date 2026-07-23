@@ -11,18 +11,7 @@ interface Props {
   type?: 'blog' | 'docs';
 }
 
-const { title, description, publishDate, updatedDate, category, tags, type = 'blog' } = Astro.props;
-
-const formattedPublish = publishDate.toLocaleDateString('ja-JP', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-const formattedUpdated = updatedDate?.toLocaleDateString('ja-JP', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const { title, description, category, tags, type = 'blog' } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const backHref = type === 'docs' ? `${base}/docs/` : `${base}/blog/`;
@@ -62,17 +51,6 @@ const backLabel = type === 'docs' ? 'Docs 一覧' : 'Blog 一覧';
       {description && (
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">{description}</p>
       )}
-
-      <div class="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
-        <time datetime={publishDate.toISOString()}>
-          公開: {formattedPublish}
-        </time>
-        {updatedDate && (
-          <time datetime={updatedDate.toISOString()}>
-            更新: {formattedUpdated}
-          </time>
-        )}
-      </div>
     </header>
 
     <!-- Article content -->

@@ -8,13 +8,7 @@ interface Props {
   type?: 'blog' | 'docs';
 }
 
-const { title, description, publishDate, category, href, type = 'blog' } = Astro.props;
-
-const formattedDate = publishDate.toLocaleDateString('ja-JP', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const { title, description, category, href, type = 'blog' } = Astro.props;
 
 const badgeStyle =
   type === 'docs'
@@ -44,10 +38,7 @@ const badgeStyle =
     </p>
   )}
 
-  <div class="flex items-center justify-between">
-    <time class="text-[13px] text-[#86868b] dark:text-[#6e6e73]" datetime={publishDate.toISOString()}>
-      {formattedDate}
-    </time>
+  <div class="flex items-center justify-end">
     <span class="text-[13px] font-semibold text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform duration-200 inline-block" aria-hidden="true">
       →
     </span>
